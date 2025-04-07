@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const alpino = localFont({
+  src: "../public/fonts/Alpino-Variable.woff2",
+  display: "swap",
+  weight: "100 900",
+  variable: "--font-alpino",
 });
 
 export const metadata: Metadata = {
   title: "Fizzi Soda",
-  description: "Fizzi app with Next.js/Tailwind/GSAP/Tree.js",
+  description: "Fizzi app with Next.js/Tailwind/FramerMotion/Tree.js",
 };
 
 export default function RootLayout({
@@ -25,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${alpino.className} overflow-hidden bg-yellow-300 antialiased`}
       >
         {children}
       </body>
