@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import TextSplitter from "@/components/TextSplitter";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
             <div className="grid h-screen place-items-center">
               <div className="grid auto-rows-min place-items-center text-center">
                 <h1 className="text-7xl leading-[.8] font-black text-orange-500 uppercase md:text-[9rem] lg:text-[13rem]">
-                  LIVE GUTSY
+                  <TextSplitter text={"LIVE GUTSY"} display="block" onlyWords />
                 </h1>
                 <div className="mt-12 text-5xl font-semibold text-sky-950 lg:text-6xl">
                   Soda Perfected
