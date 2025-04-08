@@ -3,40 +3,46 @@ import React from "react";
 import TextSplitter from "./TextSplitter";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import useStore from "@/hooks/useStore";
 
 gsap.registerPlugin(useGSAP);
 
 function Hero() {
-  useGSAP(() => {
-    const introTl = gsap.timeline();
+  const { ready } = useStore();
+  useGSAP(
+    () => {
+      if (!ready) return;
+      const introTl = gsap.timeline();
 
-    introTl
-      .set(".hero", { opacity: 1 })
-      .from(".hero-title", {
-        scale: 3,
-        opacity: 0,
-        ease: "power4.in",
-        delay: 0.3,
-        stagger: 1,
-      })
-      .from(
-        ".hero-subheading",
-        {
+      introTl
+        .set(".hero", { opacity: 1 })
+        .from(".hero-title", {
+          scale: 3,
           opacity: 0,
-          y: 30,
-        },
-        "+=.8",
-      )
-      .from(".hero-body", {
-        opacity: 0,
-        y: 10,
-      })
-      .from(".hero-button", {
-        opacity: 0,
-        y: 10,
-        duration: 0.6,
-      });
-  });
+          ease: "power4.in",
+          delay: 0.3,
+          stagger: 1,
+        })
+        .from(
+          ".hero-subheading",
+          {
+            opacity: 0,
+            y: 30,
+          },
+          "+=.8",
+        )
+        .from(".hero-body", {
+          opacity: 0,
+          y: 10,
+        })
+        .from(".hero-button", {
+          opacity: 0,
+          y: 10,
+          duration: 0.6,
+        });
+    },
+    { dependencies: [ready] },
+  );
 
   return (
     <div className="hero grid h-screen place-items-center opacity-0">
