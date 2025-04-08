@@ -1,6 +1,7 @@
 "use client";
 import { View } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+// import { Perf } from "r3f-perf";
 
 function ViewCanvas() {
   return (
@@ -14,6 +15,7 @@ function ViewCanvas() {
         gl={{ antialias: true }}
       >
         <View.Port />
+        {/* <Perf /> */}
       </Canvas>
     </div>
   );

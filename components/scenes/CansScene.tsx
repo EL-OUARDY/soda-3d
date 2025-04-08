@@ -1,7 +1,7 @@
 "use client ";
 import { Environment } from "@react-three/drei";
 import React, { useRef } from "react";
-import FloatingCan from "./FloatingCan";
+import FloatingCan from "../FloatingCan";
 import { Group } from "three";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -10,7 +10,7 @@ import useStore from "@/hooks/useStore";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-function Scene() {
+function CansScene() {
   const { setIsReady } = useStore();
 
   const can1Ref = useRef<Group>(null);
@@ -73,7 +73,7 @@ function Scene() {
         duration: 2,
       },
       scrollTrigger: {
-        trigger: ".page-wrapper",
+        trigger: ".hero",
         start: "top top",
         end: "bottom bottom",
         scrub: 1.5,
@@ -141,4 +141,4 @@ function Scene() {
   );
 }
 
-export default Scene;
+export default CansScene;
