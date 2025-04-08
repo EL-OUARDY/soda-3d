@@ -50,7 +50,7 @@ function Flavors() {
           five flavors and find your favorite!
         </div>
       </div>
-      <div className="relative h-full w-full">
+      <div className="relative h-full w-full md:hidden">
         <Image
           src={cansImage}
           alt="All flavors"
