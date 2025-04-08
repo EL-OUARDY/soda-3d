@@ -36,8 +36,8 @@ function Flavors() {
       });
   });
   return (
-    <div className="text-side relative z-[10] grid h-screen items-center gap-4 md:grid-cols-2">
-      <div>
+    <div className="text-side relative grid h-screen items-center gap-4 md:grid-cols-2">
+      <div className="z-[101]">
         <h2 className="text-side-heading text-6xl font-black text-balance text-sky-950 uppercase lg:text-8xl">
           <TextSplitter
             className="flavors-title"
