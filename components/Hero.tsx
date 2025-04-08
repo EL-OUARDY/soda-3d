@@ -4,14 +4,17 @@ import TextSplitter from "./TextSplitter";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import useStore from "@/hooks/useStore";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 gsap.registerPlugin(useGSAP);
 
 function Hero() {
   const { ready } = useStore();
+  const isDesktop = useMediaQuery("(min-width: 768px)", true);
+
   useGSAP(
     () => {
-      if (!ready) return;
+      if (!ready && isDesktop) return;
       const introTl = gsap.timeline();
 
       introTl
@@ -41,7 +44,7 @@ function Hero() {
           duration: 0.6,
         });
     },
-    { dependencies: [ready] },
+    { dependencies: [ready, isDesktop] },
   );
 
   return (

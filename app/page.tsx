@@ -10,15 +10,17 @@ import { View } from "@react-three/drei";
 import Scene from "@/components/Scene";
 import Bubbles from "@/components/Bubbles";
 import useStore from "@/hooks/useStore";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Home() {
   const { ready } = useStore();
+  const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
   useGSAP(
     () => {
-      if (!ready) return;
+      if (!ready && isDesktop) return;
 
       const introTl = gsap.timeline();
 
@@ -46,7 +48,7 @@ export default function Home() {
         0.1,
       );
     },
-    { dependencies: [ready] },
+    { dependencies: [ready, isDesktop] },
   );
   return (
     <>
@@ -54,10 +56,12 @@ export default function Home() {
       <main>
         <section className="px-4 md:px-6">
           <div className="page-wrapper mx-auto flex w-full max-w-7xl flex-col items-center pt-10 opacity-0">
-            <View className="pointer-events-none sticky top-0 z-100 -mt-[100vh] hidden h-screen w-screen md:block">
-              <Scene />
-              <Bubbles />
-            </View>
+            {isDesktop && (
+              <View className="pointer-events-none sticky top-0 z-100 -mt-[100vh] h-screen w-screen">
+                <Scene />
+                <Bubbles />
+              </View>
+            )}
             <Hero />
             <Flavors />
             <ViewCanvas />
