@@ -8,7 +8,7 @@
 
 /* Custom scroll bar */
 body {
-  --sb-track-color: var(--color-yellow-300);
+  --sb-track-color: transparent;
   --sb-thumb-color: var(--color-orange-500);
   --sb-size: 4px;
 }
@@ -19,12 +19,12 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-track {
   background: var(--sb-track-color);
-  border-radius: 3px;
+  border-radius: 0;
 }
 
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
-  border-radius: 3px;
+  border-radius: 0;
 }
 
 @supports not selector(::-webkit-scrollbar) {
