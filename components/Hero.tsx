@@ -11,11 +11,12 @@ import Bounded from "@/components/BoundedContainer";
 import TextSplitter from "@/components/TextSplitter";
 import Image from "next/image";
 import cansImage from "@/public/img/cans.png";
+import VerticalFadeLayer from "./VerticalFadeLayer";
 
 gsap.registerPlugin(useGSAP);
 
 function Hero() {
-  const { ready } = useStore();
+  const { ready, setBackground } = useStore();
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
   useGSAP(
@@ -64,6 +65,12 @@ function Hero() {
           start: "top top",
           end: "bottom bottom",
           scrub: 1.5,
+          onUpdate: () => {
+            // Grab the current color on each tick:
+            const color = gsap.getProperty("body", "backgroundColor");
+            // Store it in state:
+            setBackground(color.toString());
+          },
         },
       });
 
@@ -129,8 +136,9 @@ function Hero() {
             </button>
           </div>
         </div>
+
         <div className="text-side relative grid h-screen items-center gap-4 md:grid-cols-2">
-          <div className="z-[101]">
+          <div className="z-101">
             <h2 className="text-side-heading text-6xl font-black text-balance text-sky-950 uppercase lg:text-8xl">
               <TextSplitter
                 className="flavors-title"
@@ -156,6 +164,8 @@ function Hero() {
           </div>
         </div>
       </div>
+      {/* Gradient overlay at the bottom of the hero section for a smooth visual transition */}
+      <VerticalFadeLayer className="pointer-events-none z-109 -mt-20 h-20 w-screen" />
     </Bounded>
   );
 }

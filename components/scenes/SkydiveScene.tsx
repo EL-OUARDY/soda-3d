@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Cloud, Clouds, Environment, Text } from "@react-three/drei";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import useStore from "@/hooks/useStore";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -15,6 +16,8 @@ interface Props {
   flavor: SodaCanProps["flavor"];
 }
 function SkydiveScene({ text, flavor }: Props) {
+  const { setBackground } = useStore();
+
   const groupRef = useRef<THREE.Group>(null);
   const canRef = useRef<THREE.Group>(null);
   const cloud1Ref = useRef<THREE.Group>(null);
@@ -112,6 +115,12 @@ function SkydiveScene({ text, flavor }: Props) {
         backgroundColor: "#C0F0F5",
         overwrite: "auto",
         duration: 0.1,
+        onUpdate: () => {
+          // Grab the current color on each tick:
+          const color = gsap.getProperty("body", "backgroundColor");
+          // Store it in state:
+          setBackground(color.toString());
+        },
       })
       // Clouds approach viewer
       .to(cloudsRef.current.position, { z: 0, duration: 0.3 }, 0)
