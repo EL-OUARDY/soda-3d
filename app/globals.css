@@ -8,7 +8,7 @@
 
 /* Custom scroll bar */
 body {
-  --sb-track-color: transparent;
+  --sb-track-color: var(--color-orange-300);
   --sb-thumb-color: var(--color-orange-500);
   --sb-size: 4px;
 }

@@ -1,4 +1,5 @@
 "use client";
+import FlavorCarousel from "@/components/FlavorCarousel";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SkyDive from "@/components/SkyDive";
@@ -12,6 +13,7 @@ export default function Home() {
           <Hero />
           <SkyDive />
         </div>
+        <FlavorCarousel />
       </main>
     </>
   );
