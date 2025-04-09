@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ViewCanvas from "@/components/ViewCanvas";
+import ReactLenis from "lenis/react";
 
 const alpino = localFont({
   src: "../public/fonts/Alpino-Variable.woff2",
@@ -21,13 +22,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${alpino.className} overflow-x-hidden bg-yellow-300 antialiased`}
-      >
-        {children}
-        <ViewCanvas />
-      </body>
-    </html>
+    <ReactLenis root>
+      <html lang="en">
+        <body
+          className={`${alpino.className} overflow-x-hidden bg-yellow-300 antialiased`}
+        >
+          {children}
+          <ViewCanvas />
+        </body>
+      </html>
+    </ReactLenis>
   );
 }
