@@ -75,7 +75,7 @@ function SkydiveScene({ text, flavor }: Props) {
     const DISTANCE = 15;
     const DURATION = 6;
 
-    gsap.set([cloud2Ref.current.position, cloud1Ref.current.position], {
+    gsap.set([cloud1Ref.current.position, cloud2Ref.current.position], {
       ...getXYPositions(DISTANCE),
     });
 
@@ -123,14 +123,18 @@ function SkydiveScene({ text, flavor }: Props) {
         },
       })
       // Clouds approach viewer
-      .to(cloudsRef.current.position, { z: 0, duration: 0.3 }, 0)
+      .to(cloudsRef.current.position, { z: 0, duration: 0.3 }, 0.3)
       // Can moves to center
-      .to(canRef.current.position, {
-        x: 0,
-        y: 0,
-        duration: 0.3,
-        ease: "back.out(1.7)",
-      })
+      .to(
+        canRef.current.position,
+        {
+          x: 0,
+          y: 0,
+          duration: 0.3,
+          ease: "back.out(1.7)",
+        },
+        0.3,
+      )
       // Text animation sequence
       .to(
         wordsRef.current.children.map((word) => word.position),
@@ -141,7 +145,7 @@ function SkydiveScene({ text, flavor }: Props) {
           ],
           stagger: 0.3,
         },
-        0,
+        0.3,
       )
       // Can exits scene
       .to(canRef.current.position, {
