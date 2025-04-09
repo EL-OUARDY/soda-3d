@@ -13,7 +13,8 @@ function Header() {
     () => {
       if (!ready) return;
 
-      gsap.to(".logo", { opacity: 1, ease: "sine.in" });
+      // Animate logo opacity with smooth sine easing
+      gsap.to(".logo", { opacity: 1, ease: "sine.in()" });
     },
     { dependencies: [ready] },
   );

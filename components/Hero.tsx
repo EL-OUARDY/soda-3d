@@ -21,10 +21,14 @@ function Hero() {
   useGSAP(
     () => {
       if (!ready && isDesktop) return;
+
+      // Initial entrance animation timeline
       const introTl = gsap.timeline();
 
       introTl
+        // Make hero visible
         .set(".hero", { opacity: 1 })
+        // Animate main title with zoom effect
         .from(".hero-title", {
           scale: 3,
           opacity: 0,
@@ -32,6 +36,7 @@ function Hero() {
           delay: 0.3,
           stagger: 1,
         })
+        // Fade in subheading with slight upward motion
         .from(
           ".hero-subheading",
           {
@@ -40,16 +45,19 @@ function Hero() {
           },
           "+=.8",
         )
+        // Fade in body text
         .from(".hero-body", {
           opacity: 0,
           y: 10,
         })
+        // Fade in CTA button
         .from(".hero-button", {
           opacity: 0,
           y: 10,
           duration: 0.6,
         });
 
+      // Scroll-triggered animation timeline
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero",
@@ -60,6 +68,7 @@ function Hero() {
       });
 
       scrollTl
+        // Background color transition on scroll
         .fromTo(
           "body",
           {
@@ -71,6 +80,7 @@ function Hero() {
           },
           1,
         )
+        // Animate flavor section title characters
         .from(".flavors-title .split-char", {
           scale: 1.3,
           y: 40,
@@ -80,6 +90,7 @@ function Hero() {
           ease: "back.out(3)",
           duration: 0.5,
         })
+        // Fade in flavor section body text
         .from(".flavors-body", {
           y: 20,
           opacity: 0,

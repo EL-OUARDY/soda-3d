@@ -27,6 +27,7 @@ function CansScene() {
   const FLOAT_SPEED = 1.5;
 
   useGSAP(() => {
+    // Early return if any refs are not available
     if (
       !can1Ref.current ||
       !can2Ref.current ||
@@ -41,18 +42,19 @@ function CansScene() {
 
     setIsReady(true);
 
-    // Set cans starting location
+    // Initialize starting positions for main cans (black cherry and lemon lime)
     gsap.set(can1Ref.current.position, { x: -1.5 });
     gsap.set(can1Ref.current.rotation, { z: -0.5 });
 
     gsap.set(can2Ref.current.position, { x: 1.5 });
     gsap.set(can2Ref.current.rotation, { z: 0.5 });
 
+    // Initialize starting positions for secondary cans (grape, strawberry, watermelon)
     gsap.set(can3Ref.current.position, { y: 5, z: 2 });
     gsap.set(can4Ref.current.position, { x: 2, y: 4, z: 2 });
     gsap.set(can5Ref.current.position, { y: -5 });
 
-    // Cans animation
+    // Initial animation timeline for cans entry
     const introTl = gsap.timeline({
       defaults: {
         duration: 3,
@@ -60,6 +62,7 @@ function CansScene() {
       },
     });
 
+    // Initial animation for main cans only if page is not scrolled
     if (window.scrollY < 20) {
       introTl
         .from(can1GroupRef.current.position, { y: -5, x: 1 }, 0)
@@ -68,6 +71,7 @@ function CansScene() {
         .from(can2GroupRef.current.rotation, { z: 3 }, 0);
     }
 
+    // Scroll-based animation timeline
     const scrollTl = gsap.timeline({
       defaults: {
         duration: 2,
@@ -81,28 +85,30 @@ function CansScene() {
     });
 
     scrollTl
-      // Rotate can group
+      // Full rotation of the entire can group
       .to(groupRef.current.rotation, { y: Math.PI * 2 })
 
-      // Can 1 - black cherry
+      // Position adjustments for black cherry can
       .to(can1Ref.current.position, { x: -0.2, y: -0.7, z: -2 }, 0)
       .to(can1Ref.current.rotation, { z: 0.3 }, 0)
 
-      // Can 2 - Lemon Lime
+      // Position adjustments for lemon lime can
       .to(can2Ref.current.position, { x: 1, y: -0.2, z: -1 }, 0)
       .to(can2Ref.current.rotation, { z: 0 }, 0)
 
-      // Can 3 - Grape
+      // Position adjustments for grape can
       .to(can3Ref.current.position, { x: -0.3, y: 0.5, z: -1 }, 0)
       .to(can3Ref.current.rotation, { z: -0.1 }, 0)
 
-      // Can 4 - Strawberry Lemonade
+      // Position adjustments for strawberry lemonade can
       .to(can4Ref.current.position, { x: 0, y: -0.3, z: 0.5 }, 0)
       .to(can4Ref.current.rotation, { z: 0.3 }, 0)
 
-      // Can 5 - Watermelon
+      // Position adjustments for watermelon can
       .to(can5Ref.current.position, { x: 0.3, y: 0.5, z: -0.5 }, 0)
       .to(can5Ref.current.rotation, { z: -0.25 }, 0)
+
+      // Final group position adjustment
       .to(
         groupRef.current.position,
         { x: 1, duration: 3, ease: "sine.inOut" },

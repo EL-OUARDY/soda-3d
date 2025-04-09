@@ -27,6 +27,7 @@ function SkydiveScene({ text, flavor }: Props) {
   function getXPosition(distance: number) {
     return distance * Math.cos(ANGLE);
   }
+
   function getYPosition(distance: number) {
     return distance * Math.sin(ANGLE);
   }
@@ -39,6 +40,7 @@ function SkydiveScene({ text, flavor }: Props) {
   }
 
   useGSAP(() => {
+    // Early return if any refs are not available
     if (
       !cloudsRef.current ||
       !canRef.current ||
@@ -48,18 +50,17 @@ function SkydiveScene({ text, flavor }: Props) {
     )
       return;
 
-    // Set initial positions
+    // Initial scene setup - positioning elements
     gsap.set(cloudsRef.current.position, { z: 10 });
     gsap.set(canRef.current.position, {
       ...getXYPositions(-4),
     });
-
     gsap.set(
       wordsRef.current.children.map((word) => word.position),
       { ...getXYPositions(7), z: 2 },
     );
 
-    // Spinning can
+    // Continuous can rotation animation
     gsap.to(canRef.current.rotation, {
       y: Math.PI * 2,
       duration: 1.7,
@@ -67,7 +68,7 @@ function SkydiveScene({ text, flavor }: Props) {
       ease: "none",
     });
 
-    // Infinite cloud movement
+    // Continuous cloud movement setup
     const DISTANCE = 15;
     const DURATION = 6;
 
@@ -75,6 +76,7 @@ function SkydiveScene({ text, flavor }: Props) {
       ...getXYPositions(DISTANCE),
     });
 
+    // Cloud 1 infinite diagonal movement
     gsap.to(cloud1Ref.current.position, {
       y: `+=${getYPosition(DISTANCE * 2)}`,
       x: `+=${getXPosition(DISTANCE * -2)}`,
@@ -83,6 +85,7 @@ function SkydiveScene({ text, flavor }: Props) {
       duration: DURATION,
     });
 
+    // Cloud 2 infinite diagonal movement (delayed start)
     gsap.to(cloud2Ref.current.position, {
       y: `+=${getYPosition(DISTANCE * 2)}`,
       x: `+=${getXPosition(DISTANCE * -2)}`,
@@ -92,6 +95,7 @@ function SkydiveScene({ text, flavor }: Props) {
       duration: DURATION,
     });
 
+    // Scroll-triggered animation sequence
     const scrollTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".skydive",
@@ -103,18 +107,22 @@ function SkydiveScene({ text, flavor }: Props) {
     });
 
     scrollTl
+      // Background color transition
       .to("body", {
         backgroundColor: "#C0F0F5",
         overwrite: "auto",
         duration: 0.1,
       })
+      // Clouds approach viewer
       .to(cloudsRef.current.position, { z: 0, duration: 0.3 }, 0)
+      // Can moves to center
       .to(canRef.current.position, {
         x: 0,
         y: 0,
         duration: 0.3,
         ease: "back.out(1.7)",
       })
+      // Text animation sequence
       .to(
         wordsRef.current.children.map((word) => word.position),
         {
@@ -126,11 +134,13 @@ function SkydiveScene({ text, flavor }: Props) {
         },
         0,
       )
+      // Can exits scene
       .to(canRef.current.position, {
         ...getXYPositions(4),
         duration: 0.5,
         ease: "back.in(1.7)",
       })
+      // Clouds move away from viewer
       .to(cloudsRef.current.position, { z: 7, duration: 0.5 });
   });
 
