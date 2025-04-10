@@ -12,8 +12,8 @@ const alpino = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Fizzi Soda",
-  description: "Fizzi app with Next.js/Tailwind/GSAP/Tree.js",
+  title: "Burst Soda",
+  description: "Burst app with Next.js/Tailwind/GSAP/Tree.js",
 };
 
 export default function RootLayout({
