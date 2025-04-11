@@ -6,6 +6,12 @@
   --font-sans: var(--font-alpino);
 }
 
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 6s linear infinite;
+  }
+}
+
 /* Custom scroll bar */
 body {
   --sb-track-color: var(--color-orange-300);
