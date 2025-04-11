@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import useStore from "@/hooks/useStore";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { View } from "@react-three/drei";
+import { Environment, View } from "@react-three/drei";
 import CansScene from "@/components/scenes/CansScene";
 import Bubbles from "@/components/Bubbles";
 import Bounded from "@/components/BoundedContainer";
@@ -108,16 +108,15 @@ function Hero() {
 
   return (
     <Bounded className="hero opacity-0">
-      {isDesktop && (
-        <View className="pointer-events-none sticky top-0 z-100 -mt-[100vh] h-screen w-screen">
-          <CansScene />
-          <Bubbles />
-        </View>
-      )}
+      <View className="pointer-events-none sticky top-0 z-100 -mt-[100vh] h-screen w-screen">
+        {isDesktop && <CansScene />}
+        <Bubbles />
+        <Environment files={"/hdr/lobby.hdr"} environmentIntensity={1.5} />
+      </View>
       <div className="grid">
         <div className="grid h-screen place-items-center">
           <div className="grid auto-rows-min place-items-center text-center">
-            <h1 className="text-7xl leading-[.8] font-black text-orange-500 uppercase md:text-[9rem] lg:text-[13rem]">
+            <h1 className="text-8xl leading-[.8] font-black text-orange-500 uppercase md:text-7xl md:text-[9rem] lg:text-[13rem]">
               <TextSplitter
                 className="hero-title"
                 text={"LIVE GUTSY"}
@@ -137,7 +136,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="text-side relative grid h-screen items-center gap-4 md:grid-cols-2">
+        <div className="text-side relative grid items-center gap-4 md:h-screen md:grid-cols-2">
           <div className="z-101">
             <h2 className="text-side-heading text-6xl font-black text-balance text-sky-950 uppercase lg:text-8xl">
               <TextSplitter
@@ -155,11 +154,11 @@ function Hero() {
             <Image
               src={cansImage}
               alt="All flavors"
-              fill
-              sizes="100"
+              width={500}
+              height={500}
               quality={100}
               priority
-              className="object-cover"
+              className="my-10 w-full object-cover"
             />
           </div>
         </div>

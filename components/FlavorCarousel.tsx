@@ -66,11 +66,11 @@ function FlavorCarousel() {
 
       <WavyCircles className="absolute top-0 left-0 size-full scale-120 text-[#710523]" />
 
-      <h2 className="z-10 text-center text-5xl font-bold">
+      <h2 className="z-10 px-2 text-center text-4xl font-bold md:text-5xl">
         Choose Your Flavor
       </h2>
 
-      <div className="flex items-center border-2">
+      <div className="flex items-center justify-center">
         {/* Left */}
         <ArrowButton
           onClick={() => {

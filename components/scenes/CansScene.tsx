@@ -1,5 +1,4 @@
 "use client ";
-import { Environment } from "@react-three/drei";
 import React, { useRef } from "react";
 import FloatingCan from "../FloatingCan";
 import { Group } from "three";
@@ -141,8 +140,6 @@ function CansScene() {
         flavor="strawberryLemonade"
       />
       <FloatingCan ref={can5Ref} floatSpeed={FLOAT_SPEED} flavor="watermelon" />
-
-      <Environment files={"/hdr/lobby.hdr"} environmentIntensity={1.5} />
     </group>
   );
 }

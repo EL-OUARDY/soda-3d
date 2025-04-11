@@ -17,6 +17,7 @@ interface Props {
 }
 function SkydiveScene({ text, flavor }: Props) {
   const { setBackground } = useStore();
+  const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
   const groupRef = useRef<THREE.Group>(null);
   const canRef = useRef<THREE.Group>(null);
@@ -165,8 +166,9 @@ function SkydiveScene({ text, flavor }: Props) {
           ref={canRef}
           flavor={flavor}
           rotationIntensity={0}
-          floatIntensity={3}
+          floatIntensity={isDesktop ? 3 : 1}
           floatSpeed={3}
+          scale={isDesktop ? 2 : 1.2}
         >
           <pointLight intensity={30} color="#8C0413" decay={0.6} />
         </FloatingCan>
@@ -205,7 +207,7 @@ function ThreeText({
   return words.map((word: string, wordIndex: number) => (
     <Text
       key={wordIndex}
-      scale={isDesktop ? 1 : 0.5}
+      scale={isDesktop ? 1 : 0.4}
       color={color}
       material={material}
       font="/fonts/Alpino-Variable.woff"

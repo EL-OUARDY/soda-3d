@@ -9,6 +9,7 @@ import SodaCan, { SodaCanProps } from "./SodaCan";
 interface FloatingCanProps {
   flavor?: SodaCanProps["flavor"];
   floatSpeed?: number;
+  scale?: number;
   rotationIntensity?: number;
   floatIntensity?: number;
   floatingRange?: [number, number];
@@ -20,6 +21,7 @@ const FloatingCan = forwardRef<Group, FloatingCanProps>(
     {
       flavor = "blackCherry",
       floatSpeed = 1.5,
+      scale = 2,
       rotationIntensity = 1,
       floatIntensity = 1,
       floatingRange = [-0.1, 0.1],
@@ -37,7 +39,7 @@ const FloatingCan = forwardRef<Group, FloatingCanProps>(
           floatingRange={floatingRange}
         >
           {children}
-          <SodaCan flavor={flavor} />
+          <SodaCan flavor={flavor} scale={scale} />
         </Float>
       </group>
     );

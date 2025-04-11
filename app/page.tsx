@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="">
         <div className="px-4 md:px-6">
           <Hero />
           <SkyDive />
