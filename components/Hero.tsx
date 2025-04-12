@@ -79,10 +79,14 @@ function Hero() {
         .fromTo(
           "body",
           {
-            backgroundColor: "#FDE047",
+            backgroundColor: getComputedStyle(document.documentElement)
+              .getPropertyValue("--background")
+              .trim(),
           },
           {
-            backgroundColor: "#D9F99D",
+            backgroundColor: getComputedStyle(document.documentElement)
+              .getPropertyValue("--all-flavors-background")
+              .trim(),
             overwrite: "auto",
           },
           1,
@@ -116,7 +120,7 @@ function Hero() {
       <div className="grid">
         <div className="grid h-screen place-items-center">
           <div className="grid auto-rows-min place-items-center text-center">
-            <h1 className="flex flex-col gap-2 text-7xl leading-[.8] font-black text-orange-500 uppercase md:text-[7.5rem] lg:text-[8.5rem]">
+            <h1 className="text-primary flex flex-col gap-2 text-7xl leading-[.8] font-black uppercase md:text-[7.5rem] lg:text-[8.5rem]">
               <TextSplitter
                 className="hero-title"
                 text={"Never Settle"}
@@ -124,10 +128,10 @@ function Hero() {
                 onlyWords
               />
             </h1>
-            <div className="hero-subheading mt-12 text-5xl font-semibold text-sky-950 lg:text-6xl">
+            <div className="hero-subheading mt-12 text-4xl font-semibold md:text-5xl lg:text-6xl">
               Soda Perfected
             </div>
-            <div className="hero-body text-2xl font-normal text-sky-950">
+            <div className="hero-body text-xl font-normal md:text-2xl">
               3-5g sugar. 9g fiber. 5 delightful flavors.
             </div>
             <button
@@ -137,7 +141,7 @@ function Hero() {
                   easing: (t) => 1 - Math.pow(1 - t, 3), // easeOutCubic
                 });
               }}
-              className="hero-button mt-12 cursor-pointer rounded-xl bg-orange-600 px-5 py-4 text-center text-xl font-bold tracking-wide text-white uppercase transition-colors duration-150 hover:bg-orange-700 md:text-2xl"
+              className="hero-button bg-primary mt-12 cursor-pointer rounded-xl px-5 py-4 text-center text-xl font-bold tracking-wide text-white uppercase transition-colors duration-150 hover:bg-orange-700 md:text-2xl"
             >
               Shop Now
             </button>
@@ -146,13 +150,13 @@ function Hero() {
 
         <div className="text-side relative grid items-center gap-4 md:h-screen md:grid-cols-2">
           <div className="z-101 mb-30">
-            <h2 className="text-side-heading text-6xl font-black text-balance text-sky-950 uppercase lg:text-8xl">
+            <h2 className="text-side-heading text-6xl font-black text-balance uppercase lg:text-8xl">
               <TextSplitter
                 className="flavors-title"
                 text={"Try All Five Flavors"}
               />
             </h2>
-            <div className="flavors-body text-side-body mt-4 max-w-xl text-xl font-normal text-balance text-sky-950">
+            <div className="flavors-body text-side-body mt-4 max-w-xl text-xl font-normal text-balance">
               Crafted with genuine fruit juice and a hint of cane sugar. We
               steer clear of artificial sweeteners and high fructose corn syrup.
               Sample all five flavors to discover your favorite!​

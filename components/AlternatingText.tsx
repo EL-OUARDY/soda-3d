@@ -5,7 +5,7 @@ import AlternatingCanScene from "./scenes/AlternatingCanScene";
 
 function AlternatingText() {
   return (
-    <Bounded className="alternating-text-container relative bg-[#FDE047] text-sky-950">
+    <Bounded className="alternating-text-container bg-section-1-background relative">
       <div className="relative grid">
         <View className="alternating-text-view absolute inset-0 h-screen w-full">
           <AlternatingCanScene />

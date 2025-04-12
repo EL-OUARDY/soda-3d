@@ -4,8 +4,8 @@ import SpinningCircleText from "./SpinningCircleText";
 
 function Footer() {
   return (
-    <footer className="w-screen overflow-hidden bg-[#FEE832] md:min-h-screen">
-      <div className="bg-[#FE6334] text-[#FEE832]">
+    <footer className="bg-footer-foreground w-screen overflow-hidden md:min-h-screen">
+      <div className="bg-footer-background text-footer-foreground">
         <h2 className="grid w-full gap-[3vw] py-10 text-center leading-[.7] font-black uppercase">
           <div className="text-[34vw]">Soda</div>
           <div className="grid gap-[3vw] text-[34vw] md:flex md:text-[11vw]">
@@ -17,7 +17,7 @@ function Footer() {
         </h2>
       </div>
       <div className="relative mx-auto flex max-w-4xl justify-center px-4 py-10">
-        <Logo className="text-[#FE6334]" />
+        <Logo className="text-footer-background" />
         <div className="absolute top-0 right-24 size-28 origin-center -translate-y-14 md:size-48 md:-translate-y-28">
           <SpinningCircleText />
         </div>

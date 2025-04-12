@@ -25,7 +25,7 @@ export default function RootLayout({
     <ReactLenis root>
       <html lang="en">
         <body
-          className={`${alpino.className} overflow-x-hidden bg-yellow-300 antialiased`}
+          className={`${alpino.className} bg-background text-foreground overflow-x-hidden antialiased`}
         >
           {children}
           <ViewCanvas />

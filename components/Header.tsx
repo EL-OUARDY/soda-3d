@@ -19,8 +19,8 @@ function Header() {
     { dependencies: [ready] },
   );
   return (
-    <header className="center -mb-28 flex justify-center p-4">
-      <Logo className="logo z-10 h-20 cursor-pointer text-sky-800 opacity-0" />
+    <header className="center -mb-33 flex justify-center p-4">
+      <Logo className="logo text-logo z-10 h-25 cursor-pointer opacity-0" />
     </header>
   );
 }

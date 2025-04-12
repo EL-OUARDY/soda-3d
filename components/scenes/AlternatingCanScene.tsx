@@ -12,7 +12,17 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function AlternatingCanScene() {
   const canRef = useRef<Group>(null);
-  const bgColors = ["#FDE047", "#E9CFF6", "#CBEF9A"];
+  const bgColors = [
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--section-1-background")
+      .trim(),
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--section-2-background")
+      .trim(),
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--section-3-background")
+      .trim(),
+  ];
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
   useGSAP(
