@@ -61,7 +61,10 @@ function FlavorCarousel() {
   }
 
   return (
-    <section className="carousel relative grid h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white">
+    <section
+      id="flavors"
+      className="carousel relative grid h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white"
+    >
       <div className="background pointer-events-none absolute inset-0 bg-[#710523] opacity-50" />
 
       <WavyCircles className="absolute top-0 left-0 size-full scale-120 text-[#710523]" />

@@ -14,12 +14,13 @@ function AlternatingText() {
         <div className="alternating-section z-101 grid h-screen place-items-center gap-x-24 md:grid-cols-2">
           <div className="col-start-1 rounded-lg p-4 backdrop-blur-lg max-md:bg-white/30">
             <h2 className="text-6xl font-bold text-balance">
-              Gut-Friendly Goodness
+              Purely Refreshing
             </h2>
             <p className="mt-4 text-xl">
-              Our soda is packed with prebiotics and 1 billion probiotics,
-              giving your gut the love it deserves. Say goodbye to bloating and
-              hello to a happy, healthy digestive system with every sip.
+              Made exclusively with top-quality natural ingredients, our soda
+              contains no artificial sweeteners or flavors. Enjoy a crisp, clean
+              taste that feels as good as it tastes, offering genuine, natural
+              refreshment.​
             </p>
           </div>
         </div>
@@ -27,25 +28,25 @@ function AlternatingText() {
         <div className="alternating-section z-101 grid h-screen place-items-center gap-x-24 md:grid-cols-2">
           <div className="rounded-lg p-4 backdrop-blur-lg max-md:bg-white/30 md:col-start-2">
             <h2 className="text-6xl font-bold text-balance">
-              Light Calories, Big Flavor
+              Low Calories, Rich Taste
             </h2>
             <p className="mt-4 text-xl">
-              Indulge in bold, refreshing taste without the guilt. At just 20
-              calories per can, you can enjoy all the flavor you crave with none
-              of the compromise.
+              Savor bold, invigorating flavors without the guilt. With just 20
+              calories per can, indulge in the taste you love without
+              compromise.​
             </p>
           </div>
         </div>
+
         <div className="alternating-section z-101 grid h-screen place-items-center gap-x-24 md:grid-cols-2">
           <div className="col-start-1 rounded-lg p-4 backdrop-blur-lg max-md:bg-white/30">
             <h2 className="text-6xl font-bold text-balance">
-              Naturally Refreshing
+              Gut-Friendly Benefits{" "}
             </h2>
             <p className="mt-4 text-xl">
-              Made with only the best natural ingredients, our soda is free from
-              artificial sweeteners and flavors. It’s a crisp, clean taste that
-              feels as good as it tastes, giving you a boost of real, natural
-              refreshment.
+              Infused with prebiotics and 1 billion probiotics, our soda
+              nurtures your digestive system. Bid farewell to bloating and
+              welcome a happier, healthier gut with every sip.​
             </p>
           </div>
         </div>

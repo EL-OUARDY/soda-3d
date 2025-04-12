@@ -4,7 +4,7 @@ import { View } from "@react-three/drei";
 import Bounded from "./BoundedContainer";
 
 function SkyDive() {
-  const sentence = "Dive Into Better Health";
+  const sentence = "Only good stuff inside";
   return (
     <Bounded className="skydive h-screen">
       <h2 className="sr-only">{sentence}</h2>

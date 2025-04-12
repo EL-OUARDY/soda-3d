@@ -6,11 +6,11 @@ import * as THREE from "three";
 useGLTF.preload("/models/soda-can.gltf");
 
 const flavorTextures = {
-  lemonLime: "/labels/lemon-lime.png",
-  grape: "/labels/grape.png",
-  blackCherry: "/labels/cherry.png",
-  strawberryLemonade: "/labels/strawberry.png",
-  watermelon: "/labels/watermelon.png",
+  lemonLime: "/img/lemon-lime.png",
+  grape: "/img/grape.png",
+  blackCherry: "/img/cherry.png",
+  strawberryLemonade: "/img/strawberry.png",
+  watermelon: "/img/watermelon.png",
 };
 
 const metalMaterial = new THREE.MeshStandardMaterial({

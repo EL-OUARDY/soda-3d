@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
+import useStore from "@/hooks/useStore";
 
 // Using Object3D as a container to efficiently set and update positions for each bubble instance
 const o = new THREE.Object3D();
@@ -17,6 +18,7 @@ function Bubbles({
   repeat = true,
 }) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
+  const { setIsReady } = useStore();
 
   // An array that holds all of our bubbles' speeds
   const bubbleSpeed = useRef(new Float32Array(count));
@@ -38,6 +40,8 @@ function Bubbles({
     if (!mesh) {
       return;
     }
+
+    setIsReady(true);
 
     // Create {count} number of bubbles in random locations
     for (let i = 0; i < count; i++) {

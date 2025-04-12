@@ -9,19 +9,19 @@ import CansScene from "@/components/scenes/CansScene";
 import Bubbles from "@/components/Bubbles";
 import Bounded from "@/components/BoundedContainer";
 import TextSplitter from "@/components/TextSplitter";
-import Image from "next/image";
-import cansImage from "@/public/img/cans.png";
 import VerticalFadeLayer from "./VerticalFadeLayer";
+import { useLenis } from "lenis/react";
 
 gsap.registerPlugin(useGSAP);
 
 function Hero() {
   const { ready, setBackground } = useStore();
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
+  const lenis = useLenis();
 
   useGSAP(
     () => {
-      if (!ready && isDesktop) return;
+      if (!ready) return;
 
       // Initial entrance animation timeline
       const introTl = gsap.timeline();
@@ -103,7 +103,7 @@ function Hero() {
           opacity: 0,
         });
     },
-    { dependencies: [ready, isDesktop] },
+    { dependencies: [ready] },
   );
 
   return (
@@ -116,10 +116,10 @@ function Hero() {
       <div className="grid">
         <div className="grid h-screen place-items-center">
           <div className="grid auto-rows-min place-items-center text-center">
-            <h1 className="text-8xl leading-[.8] font-black text-orange-500 uppercase md:text-7xl md:text-[9rem] lg:text-[13rem]">
+            <h1 className="flex flex-col gap-2 text-7xl leading-[.8] font-black text-orange-500 uppercase md:text-[7.5rem] lg:text-[8.5rem]">
               <TextSplitter
                 className="hero-title"
-                text={"LIVE GUTSY"}
+                text={"Never Settle"}
                 display="block"
                 onlyWords
               />
@@ -128,38 +128,35 @@ function Hero() {
               Soda Perfected
             </div>
             <div className="hero-body text-2xl font-normal text-sky-950">
-              3-5g sugar. 9g fiber. 5 delicious flavors.
+              3-5g sugar. 9g fiber. 5 delightful flavors.
             </div>
-            <button className="hero-button mt-12 cursor-pointer rounded-xl bg-orange-600 px-5 py-4 text-center text-xl font-bold tracking-wide text-white uppercase transition-colors duration-150 hover:bg-orange-700 md:text-2xl">
+            <button
+              onClick={() => {
+                lenis?.scrollTo(window.scrollY + window.innerHeight, {
+                  duration: 3,
+                  easing: (t) => 1 - Math.pow(1 - t, 3), // easeOutCubic
+                });
+              }}
+              className="hero-button mt-12 cursor-pointer rounded-xl bg-orange-600 px-5 py-4 text-center text-xl font-bold tracking-wide text-white uppercase transition-colors duration-150 hover:bg-orange-700 md:text-2xl"
+            >
               Shop Now
             </button>
           </div>
         </div>
 
         <div className="text-side relative grid items-center gap-4 md:h-screen md:grid-cols-2">
-          <div className="z-101">
+          <div className="z-101 mb-30">
             <h2 className="text-side-heading text-6xl font-black text-balance text-sky-950 uppercase lg:text-8xl">
               <TextSplitter
                 className="flavors-title"
-                text={"Try all five flavors"}
+                text={"Try All Five Flavors"}
               />
             </h2>
             <div className="flavors-body text-side-body mt-4 max-w-xl text-xl font-normal text-balance text-sky-950">
-              Our soda is made with real fruit juice and a touch of cane sugar.
-              We never use artificial sweeteners or high fructose corn syrup.
-              Try all five flavors and find your favorite!
+              Crafted with genuine fruit juice and a hint of cane sugar. We
+              steer clear of artificial sweeteners and high fructose corn syrup.
+              Sample all five flavors to discover your favorite!​
             </div>
-          </div>
-          <div className="relative h-full w-full md:hidden">
-            <Image
-              src={cansImage}
-              alt="All flavors"
-              width={500}
-              height={500}
-              quality={100}
-              priority
-              className="my-10 w-full object-cover"
-            />
           </div>
         </div>
       </div>
