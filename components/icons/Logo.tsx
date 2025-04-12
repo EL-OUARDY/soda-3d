@@ -33,7 +33,7 @@ function Logo(props: SVGProps<SVGSVGElement>) {
           y="-31"
           maskUnits="userSpaceOnUse"
         >
-          <g className="transition-transform duration-500 ease-in-out group-hover:translate-y-[70%]">
+          <g className="transition-transform duration-500 ease-in-out group-hover:translate-y-[65%]">
             <path
               fill="currentColor"
               className="group-hover:animate-slide-left"

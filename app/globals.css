@@ -1,27 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FDE047;
-  --foreground: #082f49;
-  --primary: #FE6334;
-  --logo-background: #075985;
+  --background: #FFF8D6;
+  --foreground: #003B49;
+  --primary: #FF6F00;
+  --logo-background: #007C91;
 
-  /* flavors */
-  --all-flavors-background: #D9F99D;
+  --all-flavors-background: #ecfccb;
 
-  /* skydive */
-  --sky-background: #C0F0F5;
+  --section-1-background: #B2F0E6;
+  --section-2-background: #D9F99D;
+  --section-3-background: #D6FFF6;
 
-  /* --alternating sections */
-  --section-1-background: #FDE047;
-  --section-2-background: #E9CFF6;
-  --section-3-background: #CBEF9A;
-
-
-  /* footer */
-  --footer-background: #FE6334;
-  --footer-foreground: #FDE047;
+  --footer-background: #007C91;
+  --footer-foreground: #B2F0E6;
 }
+
 
 @theme inline {
   --font-sans: var(--font-alpino);
@@ -71,8 +65,8 @@
 
 /* Custom scroll bar */
 body {
-  --sb-track-color: var(--color-orange-300);
-  --sb-thumb-color: var(--color-orange-500);
+  --sb-track-color: var(--background);
+  --sb-thumb-color: var(--color-logo);
   --sb-size: 4px;
 }
 
@@ -88,6 +82,7 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 0;
+  opacity: 0.5;
 }
 
 @supports not selector(::-webkit-scrollbar) {

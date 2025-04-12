@@ -120,7 +120,7 @@ function Hero() {
       <div className="grid">
         <div className="grid h-screen place-items-center">
           <div className="grid auto-rows-min place-items-center text-center">
-            <h1 className="text-primary flex flex-col gap-2 text-7xl leading-[.8] font-black uppercase md:text-[7.5rem] lg:text-[8.5rem]">
+            <h1 className="text-primary flex flex-col gap-2 text-7xl leading-[.8] font-black uppercase md:text-[7.5rem] lg:text-[9rem]">
               <TextSplitter
                 className="hero-title"
                 text={"Never Settle"}
@@ -137,11 +137,11 @@ function Hero() {
             <button
               onClick={() => {
                 lenis?.scrollTo(window.scrollY + window.innerHeight, {
-                  duration: 3,
-                  easing: (t) => 1 - Math.pow(1 - t, 3), // easeOutCubic
+                  duration: 2.5,
+                  easing: (x) => 1 - Math.cos((x * Math.PI) / 2), // easeInSine
                 });
               }}
-              className="hero-button bg-primary mt-12 cursor-pointer rounded-xl px-5 py-4 text-center text-xl font-bold tracking-wide text-white uppercase transition-colors duration-150 hover:bg-orange-700 md:text-2xl"
+              className="hero-button bg-primary hover:bg-primary/80 mt-12 cursor-pointer rounded-xl px-5 py-4 text-center text-xl font-bold tracking-wide text-white uppercase transition-colors duration-150 md:text-2xl"
             >
               Shop Now
             </button>

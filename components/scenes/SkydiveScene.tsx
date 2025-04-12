@@ -113,9 +113,7 @@ function SkydiveScene({ text, flavor }: Props) {
     scrollTl
       // Background color transition
       .to("body", {
-        backgroundColor: getComputedStyle(document.documentElement)
-          .getPropertyValue("--sky-background")
-          .trim(),
+        backgroundColor: "#C0F0F5",
         overwrite: "auto",
         duration: 0.1,
         onUpdate: () => {

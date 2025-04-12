@@ -65,7 +65,7 @@ function Bubbles({
       mesh.geometry.dispose();
       (mesh.material as THREE.Material).dispose();
     };
-  }, [count, minSpeed, maxSpeed]);
+  }, [count, minSpeed, maxSpeed, setIsReady]);
 
   // useFrame runs on every animation frame
   useFrame(() => {
