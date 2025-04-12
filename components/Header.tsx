@@ -26,7 +26,7 @@ function Header() {
   return (
     <header className="center -mb-33 flex max-w-screen justify-center overflow-hidden p-4">
       <Logo className="logo md:text-logo text-background z-10 h-25 cursor-pointer opacity-0" />
-      <div className="fixed top-0 h-52 w-screen">
+      <div className="absolute top-0 h-52 w-screen">
         <svg
           className="shape text-logo absolute bottom-0 w-screen opacity-0 md:hidden"
           viewBox="0 0 200 200"
