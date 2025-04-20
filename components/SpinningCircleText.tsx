@@ -8,7 +8,7 @@ interface Props {
 }
 
 function SpinningCircleText({
-  textColor = "#1A871D",
+  textColor = "#007c91",
   backgroundColor = "#FFFCFA",
   className,
 }: Props) {
