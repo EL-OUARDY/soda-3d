@@ -1,7 +1,7 @@
 # Burst — Soda 3D
 
 An interactive 3D web page using `Next.js`, `TailwindCSS`, `GSAP` and `Three.js` \
-This project was created as a learning exercise to practice GSAP animations, following along with [Alex Trost's](https://trost.codes/) course [Building Fizzi](https://prismic.io/courses/fizzi-3d-website). \
+This project was created as a learning exercise to practice GSAP animations, following along with [Alex Trost's course](https://prismic.io/courses/fizzi-3d-website) \
 [Live Demo](https://burst-soda.vercel.app/) 🚀
 
 ## Features
@@ -20,9 +20,22 @@ This project was created as a learning exercise to practice GSAP animations, fol
 - GreenSock (GSAP)
 - Three.js / react-three/fiber / react-three/drei
 
-## Getting Started
+## Project Structure
 
-### Installation
+- `/app` - Next.js app directory with layouts and pages
+- `/components` - Reusable React components
+  - `/scenes` - 3D scene components
+  - `/ui` - UI components
+  - `/icons` - SVG icons and logos
+- `/hooks` - Custom React hooks
+- `/public` - Static assets
+  - `/fonts` - Custom fonts
+  - `/hdr` - HDR environment maps
+  - `/img` - Flavor images
+  - `/models` - 3D models
+- `/shared` - Shared utilities and types
+
+## Installation
 
 1. Clone the repository:
 ```bash
@@ -42,19 +55,6 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## Project Structure
 
-- `/app` - Next.js app directory with layouts and pages
-- `/components` - Reusable React components
-  - `/scenes` - 3D scene components
-  - `/ui` - UI components
-  - `/icons` - SVG icons and logos
-- `/hooks` - Custom React hooks
-- `/public` - Static assets
-  - `/fonts` - Custom fonts
-  - `/hdr` - HDR environment maps
-  - `/img` - Flavor images
-  - `/models` - 3D models
-- `/shared` - Shared utilities and types
 
 
